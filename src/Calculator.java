@@ -1,5 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.util.Arrays;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
@@ -58,7 +59,17 @@ public class Calculator {
             button.setText(buttonValue);
             button.setFocusable(false);
             button.setBorder(new LineBorder(customBlack));
-
+            if (Arrays.asList(topSymbols). contains(buttonValue)){
+                button.setBackground(customLightGray);
+                button.setForeground(customBlack);
+            } else if (Arrays.asList(rightSymbols).contains(buttonValue)) {
+                button.setBackground(customOrange);
+                button.setForeground(Color.white);
+            }
+            else {
+                button.setBackground(customDarkGray);
+                button.setForeground(Color.white);
+            }
             buttonsPanel.add(button);
         }
 
