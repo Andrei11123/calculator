@@ -71,6 +71,30 @@ public class Calculator {
                 button.setForeground(Color.white);
             }
             buttonsPanel.add(button);
+
+            button.addActionListener(new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    JButton button = (JButton) e.getSource();
+                    String buttonValue = button.getText();
+
+                    if (Arrays.asList(rightSymbols).contains(buttonValue)) {
+                        // acțiuni pentru simboluri din dreapta
+                    } else if (Arrays.asList(topSymbols).contains(buttonValue)) {
+                        // acțiuni pentru AC, +/-, %
+                    } else { // digits sau .
+                        if (buttonValue.equals(".")) {
+                            // logica pentru punct
+                        } else if ("0123456789".contains(buttonValue)) {
+                            if (displayLabel.getText().equals("0")) {
+                                displayLabel.setText(buttonValue);
+                            } else {
+                                displayLabel.setText(displayLabel.getText() + buttonValue);
+                            }
+                        }
+                    }
+                }
+            });
+
         }
 
         frame.setVisible(true);
